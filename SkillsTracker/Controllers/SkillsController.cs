@@ -11,23 +11,21 @@ namespace SkillsTracker.Controllers
         public IActionResult Index()
         {
             string html = "<h1>Skills Tracker</h1>" +
-                "<h2><ol>" +
+                "<h2>Coding skills to learn:<ol>" +
                 "<li>Java</li>" +
                 "<li>C#</li>" +
                 "<li>Python</li>" +
-                "</ol></h2>" +
-                "<label for="start">Start date:</label>
-
-< input type = "date" id = "start" name = "trip-start"
-       value = "2018-07-22"
-       min = "2018-01-01" max = "2018-12-31" >;
+                "</ol></h2>";
             return Content(html, "text/html");
             //return View();
         }
 
-        public IActionResult Skills()
+        public IActionResult Form()
         {
-            string html = "<h1>Skills Tracker";
+            string html =
+                "<label for='date'>Date:</label><br />" +
+                "<input type = 'date' id = 'date' name = 'date'>" +
+                "<label for='csharp'>C#:</label><br />";
             return Content(html, "text/html");
         }
 
