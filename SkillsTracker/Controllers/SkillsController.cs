@@ -23,10 +23,37 @@ namespace SkillsTracker.Controllers
         public IActionResult Form()
         {
             string html =
+                "<form action='/skills/form' method='post'" +
                 "<label for='date'>Date:</label><br />" +
-                "<input type = 'date' id = 'date' name = 'date'>" +
-                "<label for='csharp'>C#:</label><br />";
+                "<input type = 'date' id = 'date' name = 'date'><br />" +
+                "<label for='java'>Java:</label><br />" +
+                "<select name = 'java' id = 'java'>" +
+                "<option value = 'basics'>learning basics</option>" +
+                "<option value = 'master'>master coder</option>" +
+                "<option value = 'apps'>making apps</option>" +
+                "</select><br />" +
+                "<label for='csharp'>C#:</label><br />" +
+                "<select name = 'csharp' id = 'csharp'>" +
+                "<option value = 'basics'>learning basics</option>" +
+                "<option value = 'master'>master coder</option>" +
+                "<option value = 'apps'>making apps</option>" +
+                "</select><br />" +
+                "<label for='python'>Python:</label><br />" +
+                "<select name = 'python' id = 'python'>" +
+                "<option value = 'basics'>learning basics</option>" +
+                "<option value = 'master'>master coder</option>" +
+                "<option value = 'apps'>making apps</option>" +
+                "</select><br />" +
+                "<input type='submit' value='Submit' />" +
+                "</form>";
+
             return Content(html, "text/html");
+        }
+
+        [HttpPost]
+        public IActionResult Form(DateTime dateTime)
+        {
+            return View();
         }
 
     } // class
