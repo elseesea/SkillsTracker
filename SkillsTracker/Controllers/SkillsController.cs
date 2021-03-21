@@ -20,6 +20,7 @@ namespace SkillsTracker.Controllers
             //return View();
         }
 
+        [HttpGet]
         public IActionResult Form()
         {
             string html =
@@ -51,9 +52,35 @@ namespace SkillsTracker.Controllers
         }
 
         [HttpPost]
-        public IActionResult Form(DateTime dateTime)
+        public IActionResult Form(DateTime date, string java, string csharp, string python)
         {
-            return View();
+            string html =
+                "<h1>" + date.ToShortDateString() + "</h1>" +
+                "<ol>" +
+                "<li>Java: " + GetLevel(java) + "</li><br />" +
+                "<li>C#: " + GetLevel(csharp) + "</li><br />" +
+                "<li>Python: " + GetLevel(python) + "</li>" +
+                "</ol>";
+            return Content(html, "text/html");
+        }
+
+        public static string GetLevel(string level)
+        {
+            if (level.Equals("basics"))
+            {
+                return "learning basics";
+            }
+            else if (level.Equals("master"))
+            {
+                return "master coder";
+            }
+            else if (level.Equals("apps"))
+            {
+                return "making apps";
+            }
+            else
+                return "unknown";
+
         }
 
     } // class
